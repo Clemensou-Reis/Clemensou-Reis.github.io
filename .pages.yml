@@ -1,0 +1,176 @@
+media:
+  input: images
+  output: /images
+
+settings:
+  content:
+    merge: true
+
+content:
+  - name: posts
+    label: Blog Posts
+    type: collection
+    path: _posts
+    format: yaml-frontmatter
+    filename: "{year}-{month}-{day}-{title}.md"
+    view:
+      primary: title
+      fields: [title, date, categories]
+      sort: date
+      order: desc
+    fields:
+      - name: title
+        label: Título
+        type: string
+        required: true
+      - name: date
+        label: Data
+        type: date
+      - name: categories
+        label: Categorias
+        type: string
+        list: true
+      - name: tags
+        label: Tags
+        type: string
+        list: true
+      - name: excerpt
+        label: Resumo
+        type: text
+      - name: body
+        label: Conteúdo
+        type: rich-text
+
+  - name: portfolio
+    label: Portfolio
+    type: collection
+    path: _portfolio
+    format: yaml-frontmatter
+    filename: "{year}-{month}-{day}-{title}.md"
+    view:
+      primary: title
+      fields: [title, date, collection]
+      sort: date
+      order: desc
+    fields:
+      - name: title
+        label: Título
+        type: string
+        required: true
+      - name: date
+        label: Data
+        type: date
+      - name: collection
+        label: Grupo do projeto
+        type: string
+      - name: excerpt
+        label: Resumo
+        type: text
+      - name: body
+        label: Conteúdo
+        type: rich-text
+
+  - name: publications
+    label: Publications
+    type: collection
+    path: _publications
+    format: yaml-frontmatter
+    filename: "{year}-{month}-{day}-{title}.md"
+    view:
+      primary: title
+      fields: [title, date, category, venue]
+      sort: date
+      order: desc
+    fields:
+      - name: title
+        label: Título
+        type: string
+        required: true
+      - name: date
+        label: Data
+        type: date
+      - name: category
+        label: Categoria
+        type: string
+      - name: venue
+        label: Revista ou evento
+        type: string
+      - name: citation
+        label: Citação bibliográfica
+        type: text
+      - name: excerpt
+        label: Resumo
+        type: text
+      - name: paperurl
+        label: Link do artigo
+        type: string
+      - name: body
+        label: Conteúdo
+        type: rich-text
+
+  - name: talks
+    label: Talks
+    type: collection
+    path: _talks
+    format: yaml-frontmatter
+    filename: "{year}-{month}-{day}-{title}.md"
+    view:
+      primary: title
+      fields: [title, date, venue, location]
+      sort: date
+      order: desc
+    fields:
+      - name: title
+        label: Título
+        type: string
+        required: true
+      - name: date
+        label: Data
+        type: date
+      - name: type
+        label: Tipo de apresentação
+        type: string
+      - name: venue
+        label: Evento ou instituição
+        type: string
+      - name: location
+        label: Local
+        type: string
+      - name: slidesurl
+        label: Link dos slides
+        type: string
+      - name: body
+        label: Descrição
+        type: rich-text
+
+  - name: teaching
+    label: Teaching
+    type: collection
+    path: _teaching
+    format: yaml-frontmatter
+    filename: "{year}-{month}-{day}-{title}.md"
+    view:
+      primary: title
+      fields: [title, date, venue]
+      sort: date
+      order: desc
+    fields:
+      - name: title
+        label: Título
+        type: string
+        required: true
+      - name: date
+        label: Data
+        type: date
+      - name: type
+        label: Tipo de atividade
+        type: string
+      - name: venue
+        label: Instituição
+        type: string
+      - name: location
+        label: Local
+        type: string
+      - name: body
+        label: Descrição
+        type: rich-text
